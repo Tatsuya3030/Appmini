@@ -1,0 +1,42 @@
+<div class="contents detail">
+  <p>--------------------------------------------------------------</p>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://livedoor.blogimg.jp/tomov808/imgs/9/d/9de53650.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">よろしくお願いします<i class="material-icons right"></i></span>
+      <p><a href="#">面白い言葉をお待ちしております。</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Thank you for preparing.<i class="material-icons right"></i></span>
+    </div>
+  </div>
+</div class="contents detail">
+<div class="contents row">
+  <h2>Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.label :remember_me %><br />
+        <%= f.check_box :remember_me %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+</div>

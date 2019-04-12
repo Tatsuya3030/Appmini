@@ -1,0 +1,58 @@
+<div class="contents detail">
+  <p>--------------------------------------------------------------</p>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://livedoor.blogimg.jp/tomov808/imgs/9/d/9de53650.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">よろしくお願いします<i class="material-icons right"></i></span>
+      <p><a href="#">面白い言葉をお待ちしております。</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Thank you for preparing.<i class="material-icons right"></i></span>
+    </div>
+  </div>
+</div class="contents detail">
+<div class ="contents row">
+  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+      <ul class="more_list">
+        <li>
+          <%= link_to 'edit', "/tweets/#{@tweet.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to 'delete', "/tweets/#{@tweet.id}", method: :delete %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+    <%= simple_format(@tweet.text) %>
+    <span class="name">
+      <a href="/users/<%= @tweet.user.id %>">
+        <span>contributer</span><%= @tweet.user.nickname %>
+      </a>
+    </span>
+  </div>
+  <div class="container">
+    <!-- ここからフォーム -->
+    <% if current_user %>
+      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="starting to comment" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+    <div class="comments">
+      <h4>＜index of comments＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

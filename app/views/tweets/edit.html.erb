@@ -1,0 +1,25 @@
+<div class="contents detail">
+  <p>--------------------------------------------------------------</p>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://livedoor.blogimg.jp/tomov808/imgs/9/d/9de53650.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">よろしくお願いします<i class="material-icons right"></i></span>
+      <p><a href="#">面白い言葉をお待ちしております。</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Thank you for preparing.<i class="material-icons right"></i></span>
+    </div>
+  </div>
+</div class="contents detail">
+<div class="contents row">
+  <%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %>
+    <h3>
+      starting to edit
+    </h3>
+    <input placeholder="Image Url" type="text" name="image" value="<%= @tweet.image %>" autofocus="true">
+    <textarea cols="30" name="text" placeholder="text" rows="10"><%= @tweet.text %></textarea>
+    <input type="submit" value="SENT">
+  <% end %>
+</div>

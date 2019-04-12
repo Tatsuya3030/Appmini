@@ -1,0 +1,59 @@
+  <div class="contents detail">
+      <div class="text">ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</div>
+      <div class="text">＜＜Aphorismとは＞＞</div>
+      <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://pbs.twimg.com/profile_images/378800000078254412/95765c985e288bd1a08930eee9dc208b_400x400.jpeg">
+              <span class="card-title">犬の一言</span>
+            </div>
+            <div class="card-content">
+              <p>と、名言を言っています。</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://lohas.nicoseiga.jp/thumb/7814469i?1516461385">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">by ルパン三世<i class="material-icons right"></i></span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://static.curazy.com/wp-content/uploads/2017/10/3074510_ru-ru-600x315.jpg">
+              <span class="card-title"></span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Card Title</span>
+              <p>是非みなさんもご投稿をよろしくお願いします。</p>
+              <p>Welcome to the world of aphorism!</p>
+              <p>Would you like to submit you impressive aphorism?</p>
+              <p>Thank you for coming this page!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="contents row">
+    <% @tweets.each do |tweet| %>
+      <%= render partial: "tweet", locals: { tweet: tweet } %>
+    <% end %>
+    <%= paginate(@tweets) %>
+  </div>
